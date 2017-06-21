@@ -1,2 +1,3 @@
 # chvlk
-Chuvelk – yet another ui-kit written with typescript and react
+
+Chuvelk [tʃuvèlk] – yet another ui-kit written with typescript and react
