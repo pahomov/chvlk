@@ -62,3 +62,6 @@ lib/
 
 # Tests coverage
 coverage/
+
+# Styleguide
+styleguide/

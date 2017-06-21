@@ -10,7 +10,9 @@ before_script:
   - npm prune
 script:
   - npm t
+  - npm run _build
 after_success:
+  - npm run _documentation
   - npm run _report
   - npm run _semantic-release
 branches:
