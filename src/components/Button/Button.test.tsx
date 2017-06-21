@@ -1,6 +1,6 @@
 import * as React from 'react';
 import mount from '../../../utils/mount';
-import Button from './Button';
+import Button from './';
 
 test('Button should call onClick once', () => {
   const onClick = jest.fn();
