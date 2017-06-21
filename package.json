@@ -1,0 +1,66 @@
+{
+  "name": "chvlk",
+  "version": "0.0.1",
+  "description": "Chuvelk [tʃuvèlk] – yet another ui-kit written with typescript and react",
+  "main": "lib/",
+  "scripts": {
+    "start": "styleguidist server",
+    "build": "npm run _lint:all && npm t && npm run _build && npm run _styleguide:build",
+    "test": "jest",
+    "_styleguide:build": "rm -rf ./styleguide && styleguidist build",
+    "_build": "rm -rf ./lib && webpack",
+    "_lint:all": "tslint -c ./tslint.json --type-check -p ./",
+    "_prettify:all": "prettier --single-quote --trailing-comma es5 --parser typescript --write \"@(src|utils)/**/*.ts?(x)\""
+  },
+  "author": "Oleg Repin <iamolegga@gmail.com> (https://github.com/iamolegga)",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/enzyme": "2.8.0",
+    "@types/jest": "20.0.1",
+    "@types/node": "7.0.32",
+    "@types/react": "15.0.29",
+    "@types/react-dom": "15.5.0",
+    "awesome-typescript-loader": "3.1.3",
+    "enzyme": "2.8.2",
+    "enzyme-to-json": "1.5.1",
+    "jest": "20.0.4",
+    "prettier": "1.4.4",
+    "prettier-loader": "1.0.1",
+    "react": "15.6.1",
+    "react-docgen-typescript": "0.0.13",
+    "react-dom": "15.6.1",
+    "react-styleguidist": "5.4.4",
+    "react-test-renderer": "15.6.1",
+    "source-map-loader": "0.2.1",
+    "styled-components": "2.1.0",
+    "ts-jest": "20.0.6",
+    "tslint": "5.4.3",
+    "tslint-config-prettier": "1.1.0",
+    "tslint-loader": "3.5.3",
+    "tslint-react": "3.0.0",
+    "typescript": "2.4.0",
+    "webpack": "2.6.1"
+  },
+  "peerDependencies": {
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "styled-components": "^2.1.0",
+    "webpack": "^2.6.1"
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec|snapshot))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ]
+  }
+}

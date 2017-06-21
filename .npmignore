@@ -1,0 +1,8 @@
+docs/
+src/
+styleguide/
+utils/
+styleguide.config.js
+tsconfig.json
+tslint.json
+webpack.config.js

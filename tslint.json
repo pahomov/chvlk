@@ -1,0 +1,24 @@
+{
+  "defaultSeverity": "error",
+  "jsRules": {},
+  "rulesDirectory": [],
+  "extends": [
+    "tslint:recommended",
+    "tslint-react",
+    "tslint-config-prettier"
+  ],
+  "rules": {
+    "max-line-length": [
+      true,
+      80
+    ],
+    "typedef": [
+      true,
+      "call-signature",
+      "parameter",
+      "arrow-parameter",
+      "property-declaration",
+      "member-variable-declaration"
+    ]
+  }
+}
