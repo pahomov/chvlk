@@ -7,7 +7,7 @@
     "start": "styleguidist server",
     "test": "jest",
     "commit": "git-cz",
-    "_documentation": "gh-pages -d styleguide",
+    "_documentation": "node ./utils/documentation",
     "_report": "cat ./coverage/lcov.info | codecov",
     "_build": "npm run _build:lib && npm run _build:styleguide",
     "_build:lib": "rimraf ./lib && webpack",
