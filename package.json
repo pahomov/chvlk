@@ -77,7 +77,7 @@
     "commitizen": {
       "path": "cz-conventional-changelog"
     },
-    "pre-commit": {
+    "ghooks": {
       "pre-commit": "npm t"
     }
   }
