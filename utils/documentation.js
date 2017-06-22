@@ -5,20 +5,25 @@ const styleguidePath = path.join(__dirname, '..', 'styleguide');
 
 const props = {
   user: {
-    name: 'Oleg Repin',
-    email: 'oleg.repin@iqoption.com'
+    name: 'npm gh-pages',
+    email: 'gh-pages@localhost'
   },
 };
 
-// if (process.env.GH_TOKEN) {
-//   const packageRepo = require('../package').repository.url;
+if (process.env.GH_TOKEN) {
+  const packageRepo = require('../package').repository.url;
 
-//   props.repo =
-//     packageRepo.replace(
-//       'github.com',
-//       process.env.GH_TOKEN + '@github.com'
-//     );
-// }
+  console.log('GH_TOKEN exist');
+  console.log(
+    'repo: %s', packageRepo.replace('github.com', '[GH_TOKEN]@github.com')
+  );
+
+  props.repo =
+    packageRepo.replace(
+      'github.com',
+      process.env.GH_TOKEN + '@github.com'
+    );
+}
 
 ghpages.publish(styleguidePath, props, err => {
   if (err) {
