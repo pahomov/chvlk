@@ -6,7 +6,7 @@ notifications:
   email: false
   slack:
     rooms:
-      secure: mN8QlMZApgd3r9VgJa3U7cDHqqIxddIVXoRroFz7AhvcWHUPS5MOvZ7XMB8PSpOzFDPjAJ1m3zwLYnyV//rfmDQ//W4Xh/T50ORzJlrse8xqfR7Rdb+fXso3HXRHnfF+8LhacgNHXWkcpEtrB55hS8smNjZHLJ1eSbTE+p0OjSUsX/qBdkNRXU5IetDv5otTle5JUds9nA7fTVGKAH9TFx4W1SVYhglipzy0RgdPoSuzVbk5llkiDBNHDThGSJFijCBZupAsVY06jpjBi+JfCHfw7PJgnjBawtQg1C8hDihWVLF3DKRkbs+L+e5WNom/Dc4sqjkE75S37Gu7zzRqqrMTBhIOBvkcyfO7smnZvL26NSeRXiklvfC62Ks+HybqhXDKEjqEmrh54OphVmkUYtLOmE+gV1w5fZIP1ndCRWvIFlp5XVPN1T9FBWYXsW0vuh3oVMBgdf4CzdjD/zMjb9G0GWxpa3M1/Z4NFrlZCZ2pZzE01aEBrtcAUq8C2kRkwWYshUZjx+bmG22TcPbv89kWo9mpgxjsrMzIRjioeGVH/jUUC3xwlCHGc6jn4Y2aYcAHZNwd9kHLGijssgrTAD8mrhfWaX5Rw1Vw8bIwLIAoG6UP4uUD0+yOCvuXd2EEmNxvEN5DEbveZPwd+kNCHNMKaUs0jSs7kXTmKJW0Tv8=
+      secure: Pyqq6m1x7zYvvw9wCGx7vBhZxsjGK3oUGhamNMSiScq6/xYBZZ3M6bLRy5SwFCsGSmIQZe+liAzHRAInDlPWExEadWKgDPJgj+6qQICWdNP5wTqjVZBzXHHHgzcX7OEFAuZ59xSF2Q3fG1pjzgrpumDBXhdKWnsUBwMn/EcAG7ckdszirLRiIXyDDQ2++t8D4Sp8Qam5YvBQGN5oHQN94CkfsReV8WZxmyQHpAid+Nd68CniQEnFI3iu2+i9MhGJzEoTvNx4lqoPfXdquTTkFBbFSq/DVVgxdCKRyAse+HOl+5BIoz338632RWLqaRVWCTyvG/12OgSKfKv279y2+lPIkoplyUtAt/haBlOcZBOzfvkVB0NqSFjS0SXFG3GD9ev9C4faCOYanaRgpWFfCI+LPrXrwL/G8wAsbRQsjUrOBGa+1GY00uSnSFZ4irg4iIGL/o0kO2zZ6q/F6lokWtho2qTGp/Pby1JemlxAPeZrt0K1UshPfwB7c2DMan66qO3La1+hAmLyowWwNNKo/g4E1XcRSfKkxAQPkqWYlMwEjwoBWhdciyDGZWazgzVy/g9gLQKP8pOHob3Q5OiIcKBPbPnbpZoE27Zcv5Mf/KF1WisF3H2vKS6+m4W9tRVpnGGw8mjROO4G3MWE0TUa1l3k7XI50kGeGYlJaiUnYMo=
 node_js:
 - '8'
 before_script:
@@ -15,10 +15,9 @@ script:
 - npm t
 - npm run _build
 after_success:
-- if [ $TRAVIS_BRANCH == "master" && $TRAVIS_PULL_REQUEST == "false" ]; then
-    npm run _documentation;
-    npm run _report;
-    npm run _semantic-release;
+- |
+  if [ $TRAVIS_BRANCH == "master" && $TRAVIS_PULL_REQUEST == "false" ]; then
+    npm run _semantic-release && npm run _report && npm run _documentation
   fi
 branches:
   except:
