@@ -24,7 +24,9 @@ const common = {
 
   output: {
     filename: '[name].js',
-    path: path.join(__dirname, 'lib')
+    path: path.join(__dirname, 'lib'),
+    library: 'chvlk',
+    libraryTarget: 'commonjs2',
   },
 
   resolve: {
