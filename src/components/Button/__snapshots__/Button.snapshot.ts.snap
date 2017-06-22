@@ -4,6 +4,6 @@ exports[`Button snapshots 1`] = `
 <styled.button
   onClick={[Function]}
 >
-  Button
+  BUTTON
 </styled.button>
 `;

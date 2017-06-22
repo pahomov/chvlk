@@ -11,3 +11,14 @@ test('Button should call onClick once', () => {
 
   expect(onClick).toHaveBeenCalledTimes(1);
 });
+
+test('Button should render its text in uppercase', () => {
+  const onClick = jest.fn();
+  const inText = 'Button';
+
+  const outText = mount(<Button onClick={onClick}>{inText}</Button>)
+    .find('button')
+    .text();
+
+  expect(inText.toUpperCase()).toEqual(outText);
+});
