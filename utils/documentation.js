@@ -9,6 +9,10 @@ ghpages.publish(styleguidePath, {
     email: 'oleg.repin@iqoption.com'
   }
 }, err => {
-  if (err) { throw err; }
+  if (err) {
+    console.error('Error when publishing docs!');
+    console.error(err);
+    throw err;
+  }
   console.log('Documentation successfully uploaded!');
 });

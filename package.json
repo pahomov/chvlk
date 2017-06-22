@@ -7,6 +7,7 @@
     "start": "styleguidist server",
     "test": "jest",
     "commit": "git-cz",
+    "clear": "npm run _clear:lib && npm run _clear:styleguide",
     "_documentation": "node ./utils/documentation",
     "_report": "cat ./coverage/lcov.info | codecov",
     "_build": "npm run _build:lib && npm run _build:styleguide",
