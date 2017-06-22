@@ -10,15 +10,15 @@ const props = {
   },
 };
 
-if (process.env.GH_TOKEN) {
-  const packageRepo = require('../package').repository.url;
+// if (process.env.GH_TOKEN) {
+//   const packageRepo = require('../package').repository.url;
 
-  props.repo =
-    packageRepo.replace(
-      'github.com',
-      process.env.GH_TOKEN + '@github.com'
-    );
-}
+//   props.repo =
+//     packageRepo.replace(
+//       'github.com',
+//       process.env.GH_TOKEN + '@github.com'
+//     );
+// }
 
 ghpages.publish(styleguidePath, props, err => {
   if (err) {
