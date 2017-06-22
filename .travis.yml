@@ -1,20 +1,25 @@
 language: node_js
 cache:
   directories:
-    - node_modules
+  - node_modules
 notifications:
   email: false
+  slack:
+    rooms:
+      secure: mN8QlMZApgd3r9VgJa3U7cDHqqIxddIVXoRroFz7AhvcWHUPS5MOvZ7XMB8PSpOzFDPjAJ1m3zwLYnyV//rfmDQ//W4Xh/T50ORzJlrse8xqfR7Rdb+fXso3HXRHnfF+8LhacgNHXWkcpEtrB55hS8smNjZHLJ1eSbTE+p0OjSUsX/qBdkNRXU5IetDv5otTle5JUds9nA7fTVGKAH9TFx4W1SVYhglipzy0RgdPoSuzVbk5llkiDBNHDThGSJFijCBZupAsVY06jpjBi+JfCHfw7PJgnjBawtQg1C8hDihWVLF3DKRkbs+L+e5WNom/Dc4sqjkE75S37Gu7zzRqqrMTBhIOBvkcyfO7smnZvL26NSeRXiklvfC62Ks+HybqhXDKEjqEmrh54OphVmkUYtLOmE+gV1w5fZIP1ndCRWvIFlp5XVPN1T9FBWYXsW0vuh3oVMBgdf4CzdjD/zMjb9G0GWxpa3M1/Z4NFrlZCZ2pZzE01aEBrtcAUq8C2kRkwWYshUZjx+bmG22TcPbv89kWo9mpgxjsrMzIRjioeGVH/jUUC3xwlCHGc6jn4Y2aYcAHZNwd9kHLGijssgrTAD8mrhfWaX5Rw1Vw8bIwLIAoG6UP4uUD0+yOCvuXd2EEmNxvEN5DEbveZPwd+kNCHNMKaUs0jSs7kXTmKJW0Tv8=
 node_js:
-  - '8'
+- '8'
 before_script:
-  - npm prune
+- npm prune
 script:
-  - npm t
-  - npm run _build
+- npm t
+- npm run _build
 after_success:
-  - npm run _documentation
-  - npm run _report
-  - npm run _semantic-release
+- if [ $TRAVIS_BRANCH == "master" && $TRAVIS_PULL_REQUEST == "false" ]; then
+    npm run _documentation;
+    npm run _report;
+    npm run _semantic-release;
+  fi
 branches:
   except:
-    - /^v\d+\.\d+\.\d+$/
+  - /^v\d+\.\d+\.\d+$/
