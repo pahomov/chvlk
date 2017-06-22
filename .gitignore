@@ -65,3 +65,9 @@ coverage/
 
 # Styleguide
 styleguide/
+
+# Build files
+^[A-Z][a-z]
+index.js
+index.js.map
+themes/

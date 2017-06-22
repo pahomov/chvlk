@@ -6,7 +6,7 @@
     "jsx": "react",
     "declaration": false,
     "sourceMap": true,
-    "outDir": "./lib/",
+    "outDir": "./lib",
     "moduleResolution": "Node",
     /* Strict Type-Checking Options */
     "strict": true,

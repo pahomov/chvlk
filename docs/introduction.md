@@ -1,5 +1,3 @@
-# chvlk
-
 Chuvelk [tʃuvèlk] – yet another ui-kit written with typescript and react
 
 [![npm](https://img.shields.io/npm/v/chvlk.svg)](https://www.npmjs.com/package/chvlk)
