@@ -33,7 +33,9 @@ export class Button extends React.Component<IButtonProps, undefined> {
     const {} = this.props;
     return (
       <ButtonElement onClick={this.props.onClick}>
-        {this.props.children}
+        {typeof this.props.children === 'string'
+          ? this.props.children.toUpperCase()
+          : this.props.children}
       </ButtonElement>
     );
   }
