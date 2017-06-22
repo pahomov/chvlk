@@ -1,0 +1,10 @@
+docs/
+src/
+styleguide/
+utils/
+coverage/
+styleguide.config.js
+tsconfig.json
+tslint.json
+webpack.config.js
+.travis.yml
