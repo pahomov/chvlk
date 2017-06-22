@@ -15,7 +15,7 @@ script:
 - npm t
 - npm run _build
 - |
-  if [ $TRAVIS_BRANCH == "master"] && [$TRAVIS_PULL_REQUEST == "false" ]; then
+  if [[ ( "$TRAVIS_BRANCH" == "master" ) && ( "$TRAVIS_PULL_REQUEST" == "false" ) ]]; then
     npm run _semantic-release;
     npm run _report;
     npm run _documentation;
