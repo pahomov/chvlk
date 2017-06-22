@@ -18,8 +18,14 @@ script:
   if [[ ( "$TRAVIS_BRANCH" == "master" ) && ( "$TRAVIS_PULL_REQUEST" == "false" ) ]]; then
     npm run _semantic-release;
     npm run _report;
-    npm run _documentation;
   fi
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $PAGES_TOKEN
+  local_dir: styleguide
+  on:
+    branch: master
 branches:
   except:
   - /^v\d+\.\d+\.\d+$/
