@@ -1,5 +1,5 @@
-const fs = require('fs');
 const path = require('path');
+const getDirectories = require('./utils/getDirectories');
 
 // entry points
 const entry = {};
@@ -85,9 +85,3 @@ const common = {
 };
 
 module.exports = common;
-
-function getDirectories(srcpath) {
-  return fs
-    .readdirSync(srcpath)
-    .filter(file => fs.lstatSync(path.join(srcpath, file)).isDirectory());
-}

@@ -1,0 +1,31 @@
+import * as React from 'react';
+import styled from '../../../utils/styled';
+import { IStyledTheme } from '../../themes';
+
+export interface I%COMPONENT%Props {
+  children: JSX.Element | string;
+}
+
+// remove if don't need
+interface I%COMPONENT%State {
+
+}
+
+const %COMPONENT%Wrapper = styled.div`
+  color: ${({ theme }: { theme: IStyledTheme }): string => theme.colors.main};
+`;
+
+// replace I%COMPONENT%State with undefined, if don't need state
+export class %COMPONENT% extends React.PureComponent<I%COMPONENT%Props, I%COMPONENT%State> {
+  public static displayName: string = '%COMPONENT%';
+
+  public render(): JSX.Element {
+    return (
+      <%COMPONENT%Wrapper>
+        {this.props.children}
+      </%COMPONENT%Wrapper>
+    );
+  }
+}
+
+export default %COMPONENT%;

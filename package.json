@@ -7,8 +7,10 @@
     "start": "styleguidist server",
     "test": "jest",
     "commit": "git-cz",
-    "clear": "npm run _clear:lib && npm run _clear:styleguide",
+    "gen": "node ./gen",
+    "clear": "npm run _clear:lib && npm run _clear:styleguide && npm run _clear:coverage",
     "_report": "cat ./coverage/lcov.info | codecov",
+    "_clear:coverage": "rm -rf ./coverage",
     "_build": "npm run _build:lib && npm run _build:styleguide",
     "_build:lib": "npm run _clear:lib && webpack",
     "_clear:lib": "ls | grep -E '^[A-Z][a-z]|index|themes' | xargs rm -rf",
@@ -57,8 +59,7 @@
   "peerDependencies": {
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "styled-components": "^2.1.0",
-    "webpack": "^2.6.1"
+    "styled-components": "^2.1.0"
   },
   "jest": {
     "collectCoverage": true,

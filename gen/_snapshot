@@ -1,0 +1,8 @@
+import processSnapshots from '../../../utils/snapshots';
+import %COMPONENT%, { I%COMPONENT%Props } from './%COMPONENT%';
+
+const snapshots = [
+  { props: {} }
+];
+
+processSnapshots<I%COMPONENT%Props>(%COMPONENT%, snapshots);

@@ -1,10 +1,11 @@
-docs/
-src/
-styleguide/
-utils/
 coverage/
+docs/
+gen/
+src/
+utils/
+styleguide/
+.travis.yml
 styleguide.config.js
 tsconfig.json
 tslint.json
 webpack.config.js
-.travis.yml
