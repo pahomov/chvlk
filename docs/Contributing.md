@@ -1,6 +1,8 @@
 ## Create new component
 
-Creating new component is very simple. You need jsut run one command in your termninal:
+Creating new component is very simple.
+Fork this repo.
+And run in your termninal:
 
 ```sh
 npm run gen -- <ComponentName>
@@ -20,9 +22,10 @@ And it will create boilerplate for your component consists of:
 
 - `index.ts` - index file for the folder
 
+Structure of single component's folder in details in next section.
 
-In details:
 
+## Single component's folder
 
 ### `<ComponentName>.md`
 
@@ -56,3 +59,24 @@ instead of
 ```jsx
 import Component from 'chvlk/Component/Component';
 ```
+
+## Edit code
+
+You can start `styleguidist` for live preview of your changes by running:
+```sh
+npm start
+```
+
+When you want to stop and add your changes to git you have to add files to index:
+```sh
+git add -all
+```
+**And run [commitizen](https://www.npmjs.com/package/commitizen) instead of running `git commit`**:
+```sh
+npm run commit
+```
+After that just follow tips.
+
+When you finished with `commitizen`, npm will run all tests.
+
+If all test are successful you can push branch and create pull request to `master`.
