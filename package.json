@@ -45,11 +45,12 @@
     "react": "^16.3.2",
     "react-docgen-typescript": "0.0.13",
     "react-dom": "^16.3.2",
-    "react-styleguidist": "5.4.4",
+    "react-styleguidist": "^7.0.14",
+    "react-svg-loader": "^2.1.0",
     "semantic-release": "6.3.6",
-    "source-map-loader": "0.2.1",
     "styled-components": "^3.3.0",
     "ts-jest": "20.0.6",
+    "ts-jest-transformer": "^1.0.0",
     "tslint": "^5.10.0",
     "tslint-config-prettier": "^1.13.0",
     "tslint-loader": "^3.6.0",
@@ -89,6 +90,7 @@
       "enzyme-to-json/serializer"
     ],
     "transform": {
+      "^.+\\.svg$": "<rootDir>/test/svgTransformer.js",
       "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
     "testRegex": "(/__tests__/.*|\\.(test|spec|snapshot))\\.(ts|tsx|js)$",

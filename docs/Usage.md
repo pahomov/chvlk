@@ -8,7 +8,7 @@ After that you can use it like React's components.
 Every listed component has example (under title), how to import it from library.
 For example:
 
-```jsx
+```jsx static
 import Button from 'chvlk/Button';
 ```
 
@@ -16,7 +16,7 @@ Also every component has list of described props, and examples in sandboxes, so 
 
 **Important**: Every component use *theme* from `styled-components`, so first of all you must wrap your app in `ThemeProvider` like so:
 
-```jsx
+```jsx static
 import { ThemeProvider } from 'styled-components';
 import { themes } from 'chvlk';
 

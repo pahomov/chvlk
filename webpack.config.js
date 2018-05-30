@@ -36,8 +36,12 @@ const common = {
   module: {
     rules: [
       {
+        test: /\.tsx?$/,
+        loader: 'awesome-typescript-loader',
+        options: { transpileOnly: true }
+      },
+      {
         test: /src\/.*\.tsx?$/,
-        enforce: 'pre',
         loader: 'tslint-loader',
         options: {
           configFile: 'tslint.json',
@@ -49,9 +53,15 @@ const common = {
           formatter: 'codeFrame',
         }
       },
+      // All output '.js' files will have any sourcemaps re-processed by
+      // 'source-map-loader'.
+      {
+        test: /\.svg$/,
+        loader: "react-svg-loader",
+        
+      },
       {
         test: /\.tsx?$/,
-        enforce: 'pre',
         loader: 'prettier-loader',
         options: {
           singleQuote: true,
@@ -59,18 +69,6 @@ const common = {
           parser: 'typescript',
         }
       },
-      {
-        test: /\.tsx?$/,
-        loader: 'awesome-typescript-loader',
-        options: { transpileOnly: false }
-      },
-      // All output '.js' files will have any sourcemaps re-processed by
-      // 'source-map-loader'.
-      {
-        test: /\.js$/,
-        loader: 'source-map-loader',
-        enforce: 'pre'
-      }
     ]
   },
 

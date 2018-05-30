@@ -9,10 +9,6 @@ export interface I%COMPONENT%Props {
 // remove if don't need
 // interface I%COMPONENT%State {}
 
-const %COMPONENT%Wrapper = styled.div`
-  color: ${({ theme }: { theme: IStyledTheme }): string => theme.colors.main};
-`;
-
 // replace I%COMPONENT%State with undefined, if don't need state
 export class %COMPONENT% extends React.PureComponent<I%COMPONENT%Props, {}> {
   public static displayName: string = '%COMPONENT%';
@@ -25,5 +21,9 @@ export class %COMPONENT% extends React.PureComponent<I%COMPONENT%Props, {}> {
     );
   }
 }
+
+const %COMPONENT%Wrapper = styled.div`
+  color: ${({ theme }: { theme: IStyledTheme }): string => theme.colors.main};
+`;
 
 export default %COMPONENT%;

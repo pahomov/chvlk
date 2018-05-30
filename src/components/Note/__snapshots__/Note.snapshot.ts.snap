@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Note snapshots 1`] = `
+<div>
+  <styled.div>
+    <styled.div
+      onClick={[Function]}
+    >
+      <styled.info.svg />
+      <styled.span>
+        Hide help
+      </styled.span>
+      <styled.triangle.svg
+        isOpen={true}
+      />
+    </styled.div>
+  </styled.div>
+  <styled.div
+    isOpen={true}
+  >
+    test
+  </styled.div>
+</div>
+`;

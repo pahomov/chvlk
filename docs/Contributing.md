@@ -10,17 +10,17 @@ npm run gen -- <ComponentName>
 
 And it will create boilerplate for your component consists of:
 
-- `/src/components/<ComponentName>/` folder
+- `/src/components/<ComponentName>/` **folder**
 
-- `<ComponentName>.md` - documentation with examples
+- `<ComponentName>.md` **documentation with examples**
 
-- `<ComponentName>.snapshot.ts` - jest snapshots
+- `<ComponentName>.snapshot.ts` **jest snapshots**
 
-- `<ComponentName>.test.tsx` - functional jest tests
+- `<ComponentName>.test.tsx` **functional jest tests**
 
-- `<ComponentName>.tsx` - component code
+- `<ComponentName>.tsx` **component code**
 
-- `index.ts` - index file for the folder
+- `index.ts` **index file for the folder**
 
 Structure of single component's folder in details in next section.
 
@@ -52,11 +52,11 @@ This is the main file, here you must describe your component as you usually do.
 ### `index.ts`
 
 This is the file just to import your components more comfortable, like:
-```jsx
+```jsx static
 import Component from 'chvlk/Component';
 ```
 instead of
-```jsx
+```jsx static
 import Component from 'chvlk/Component/Component';
 ```
 

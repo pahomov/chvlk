@@ -67,7 +67,7 @@ coverage/
 styleguide/
 
 # Build files
-[A-Z]*/
+/[A-Z]*
 /index.js
 /index.js.map
 themes/
@@ -76,3 +76,5 @@ themes/
 !docs/
 !gen/
 !src/
+!utils/
+!test/
