@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styled from '../../../utils/styled';
+import styled from 'react-emotion';
 import { IStyledTheme } from '../../themes';
 import InfoIcon from './img/info.svg';
 import TriangleIcon from './img/triangle.svg';
