@@ -49,7 +49,7 @@ export class Note extends React.PureComponent<INoteProps, INoteState> {
   };
 }
 
-const Collapsible = styled.div`
+const Collapsible = styled<{ isOpen: boolean }, 'div'>('div')`
   padding-top: 11px;
   display: ${({ isOpen }: { isOpen: boolean }) => (isOpen ? 'block' : 'none')};
   border-bottom: 1px solid ${({ theme }: { theme: IStyledTheme }): string =>
@@ -58,7 +58,7 @@ const Collapsible = styled.div`
     theme.colors.text.primary};
 `;
 
-const Top = styled.div`
+const Top = styled('div')`
   display: flex;
   align-items: center;
   &:after {
@@ -70,7 +70,7 @@ const Top = styled.div`
   }
 `;
 
-const ActiveArea = styled.div`
+const ActiveArea = styled('div')`
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -102,7 +102,7 @@ const ActiveArea = styled.div`
   }
 `;
 
-const ActionName = styled.span`
+const ActionName = styled('span')`
   margin: 0 6px 0 8px;
   border-bottom: 1px dashed #AEB9C3;
 `;

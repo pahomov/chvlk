@@ -75,7 +75,7 @@ const common = {
   externals: [
     'react',
     'react-dom',
-    'styled-components'
+    'emotion'
   ],
 
   // Enable sourcemaps for debugging webpack's output.

@@ -2,23 +2,23 @@
 
 exports[`Note snapshots 1`] = `
 <div>
-  <styled.div>
-    <styled.div
+  <Styled(div)>
+    <Styled(div)
       onClick={[Function]}
     >
-      <styled.info.svg />
-      <styled.span>
+      <Styled(info.svg) />
+      <Styled(span)>
         Hide help
-      </styled.span>
-      <styled.triangle.svg
+      </Styled(span)>
+      <Styled(triangle.svg)
         isOpen={true}
       />
-    </styled.div>
-  </styled.div>
-  <styled.div
+    </Styled(div)>
+  </Styled(div)>
+  <Styled(div)
     isOpen={true}
   >
     test
-  </styled.div>
+  </Styled(div)>
 </div>
 `;

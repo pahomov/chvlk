@@ -7,7 +7,7 @@ export interface IButtonProps {
   children: JSX.Element | string;
 }
 
-const ButtonElement = styled.button`
+const ButtonElement = styled('button')`
   font-size: 13px;
   line-height: 18px;
   color: ${({ theme }: { theme: IStyledTheme }): string => theme.colors.main};

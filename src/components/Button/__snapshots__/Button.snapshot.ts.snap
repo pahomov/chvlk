@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button snapshots 1`] = `
-<styled.button
+<Styled(button)
   onClick={[MockFunction]}
 >
   BUTTON
-</styled.button>
+</Styled(button)>
 `;
