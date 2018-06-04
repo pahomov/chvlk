@@ -2,62 +2,59 @@ import * as React from 'react';
 import mount from '../../../utils/mount';
 import Input from './';
 
-// в первой итерации описываем эти типы 
-// по необходимости добавить из 
+// в первой итерации описываем эти типы
+// по необходимости добавить из
 // https://developer.mozilla.org/ru/docs/Web/HTML/Element/Input
-const inputTypesMap = [
-  'email',
-  'text',
-];
+const inputTypesMap = ['email', 'text'];
 
-test.only('Input should have onChange prop (func)', () => {
+test('Input should have onChange prop (func)', () => {
   const mountInput = mount(
     <Input
-      type='email'
-      value='75278652835293864'
-      onChange={() => console.log(111)}
-      currency='€'
-      label='Введите имя'
-      error='текст ошибки'
-      onClick={() => console.log('')}
+      type="email"
+      value="75278652835293864"
+      onChange={jest.fn()}
+      currency="€"
+      label="Введите имя"
+      error="текст ошибки"
+      onClick={jest.fn()}
     />
-  )
+  );
 
   const propType = typeof mountInput.props().children.props.onChange;
   expect(propType).toEqual('function');
 });
 
-test.only('Input type should be email or text', () => {
+test('Input type should be email or text', () => {
   const mountInput = mount(
     <Input
-      type='text'
-      value='75278652835293864'
-      onChange={() => console.log(111)}
-      currency='€'
-      label='Введите имя'
-      error='текст ошибки'
-      onClick={() => console.log('')}
+      type="text"
+      value="75278652835293864"
+      onChange={jest.fn()}
+      currency="€"
+      label="Введите имя"
+      error="текст ошибки"
+      onClick={jest.fn()}
     />
-  )
+  );
 
   const inputType = mountInput.props().children.props.type;
   expect(inputTypesMap).toContain(inputType);
 });
 
-test.only('Input value is displayed correctly', () => {
+test('Input value is displayed correctly', () => {
   const testedString = 'privet vitek iz 2007';
 
   const mountInput = mount(
     <Input
-      type='text'
+      type="text"
       value={testedString}
-      onChange={() => console.log(111)}
-      currency='€'
-      label='Введите имя'
-      error='текст ошибки'
-      onClick={() => console.log('')}
+      onChange={jest.fn()}
+      currency="€"
+      label="Введите имя"
+      error="текст ошибки"
+      onClick={jest.fn()}
     />
-  )
+  );
 
   const testedValue = mountInput.find('input').props().value;
 
