@@ -3,7 +3,7 @@ import styled from '../../../utils/styled';
 import { IStyledTheme } from '../../themes';
 import CloseSvg from './img/close.svg';
 
-interface IInputProps {
+export interface IInputProps {
   type: string;
   value: string;
   onChange: (event: React.SyntheticEvent<HTMLInputElement>) => void;
@@ -17,6 +17,7 @@ interface IInputProps {
 }
 
 interface IDefaultPropsType {
+  error: string;
   type: string;
   value: string;
 }
@@ -25,6 +26,7 @@ export class Input extends React.PureComponent<IInputProps, {}> {
   public static displayName: string = 'Input';
 
   public static defaultProps: IDefaultPropsType = {
+    error: '',
     type: 'text',
     value: '',
   };
@@ -48,7 +50,9 @@ export class Input extends React.PureComponent<IInputProps, {}> {
 
         <InputWrapper>
           {currency &&
-            <CurrencyMask isInvalid={error}>{currency}</CurrencyMask>}
+            <CurrencyMask isInvalid={!!(error && error.length > 0)}>
+              {currency}
+            </CurrencyMask>}
 
           <InputStyled
             value={value}
@@ -56,15 +60,18 @@ export class Input extends React.PureComponent<IInputProps, {}> {
             type={type}
             disabled={disabled}
             onChange={onChange}
-            currency={currency}
-            isCloseBtnVisible={value && value.length > 0}
-            isInvalid={error}
+            currency={!!currency}
+            isCloseBtnVisible={!!(value && value.length > 0)}
+            isInvalid={!!(error && error.length > 0)}
           />
 
           {value &&
             value.length > 0 &&
             onClick &&
-            <CloseSvgWrapper onClick={this.props.onClick()} isInvalid={error}>
+            <CloseSvgWrapper
+              onClick={this.props.onClick}
+              isInvalid={!!(error && error.length > 0)}
+            >
               <CloseSvg />
             </CloseSvgWrapper>}
 
@@ -83,7 +90,10 @@ const InputWrapper = styled.div`
   -webkit-font-smoothing: antialiased;
 `;
 
-const InputStyled = styled.input`
+const InputStyled = styled<
+  { isInvalid: boolean; isCloseBtnVisible: boolean; currency: boolean },
+  'input'
+>('input')`
   width: 100%;
   height: 40px;
   border: 1px solid #E1E4E7;
@@ -106,7 +116,7 @@ const InputStyled = styled.input`
   overflow: hidden;
   text-overflow: ellipsis; 
 
-  padding-left: ${({ currency }: { currency: string }) =>
+  padding-left: ${({ currency }: { currency: boolean }) =>
     currency ? '30px' : '16px'};
 
   padding-right: ${({ isCloseBtnVisible }: { isCloseBtnVisible: boolean }) =>
@@ -131,7 +141,7 @@ const InputStyled = styled.input`
     border-color: #E1E4E7;
   }
 
-  ${({ isInvalid }: { isInvalid: string }) =>
+  ${({ isInvalid }: { isInvalid: boolean }) =>
     isInvalid
       ? `
     color: #E50000;
@@ -151,7 +161,7 @@ const InputStyled = styled.input`
       : '16px'};
 `;
 
-const CurrencyMask = styled.div`
+const CurrencyMask = styled<{ isInvalid: boolean }, 'div'>('div')`
   position: absolute;
   top: 0;
   left: 0;
@@ -164,7 +174,7 @@ const CurrencyMask = styled.div`
     isInvalid ? '#E50000' : '#4F5F6F'};
 `;
 
-const CloseSvgWrapper = styled.button`
+const CloseSvgWrapper = styled<{ isInvalid: boolean }, 'button'>('button')`
   position: absolute;
   top: 1px;
   right: 0;

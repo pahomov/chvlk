@@ -7,6 +7,7 @@
     "start": "styleguidist server",
     "test": "jest",
     "testWatch": "jest --watch",
+    "updateShapshot": "jest --updateSnapshot",
     "commit": "git-cz",
     "gen": "node ./gen",
     "clear": "npm run _clear:lib && npm run _clear:styleguide && npm run _clear:coverage",

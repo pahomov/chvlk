@@ -2,11 +2,32 @@
 
 exports[`Input snapshots 1`] = `
 <div>
-  <styled.div />
   <styled.div>
+    Инпут в дефолтном состоянии с валютой и кнопкой очистить
+  </styled.div>
+  <styled.div>
+    <styled.div
+      isInvalid={true}
+    >
+      $
+    </styled.div>
     <styled.input
-      disabled={false}
+      currency={true}
+      isCloseBtnVisible={true}
+      isInvalid={true}
+      onChange={[MockFunction]}
+      type="text"
+      value="sdfsdfsdf"
     />
+    <styled.button
+      isInvalid={true}
+      onClick={[MockFunction]}
+    >
+      <close.svg />
+    </styled.button>
+  </styled.div>
+  <styled.div>
+    текст ошибки
   </styled.div>
 </div>
 `;
