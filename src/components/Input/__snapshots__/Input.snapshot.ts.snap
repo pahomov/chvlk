@@ -10,9 +10,9 @@ exports[`Input snapshots 1`] = `
       isInvalid={true}
     >
       $
-    </styled.div>
-    <styled.input
-      currency={true}
+    </Styled(div)>
+    <Styled(input)
+      hasCurrency={true}
       isCloseBtnVisible={true}
       isInvalid={true}
       onChange={[MockFunction]}

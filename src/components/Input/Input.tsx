@@ -16,10 +16,11 @@ export interface IInputProps {
   placeholder?: string;
 }
 
-interface IDefaultPropsType {
-  error: string;
-  type: string;
-  value: string;
+interface IStyledProps {
+  isInvalid?: boolean;
+  hasCurrency?: boolean;
+  isCloseBtnVisible?: boolean;
+  theme?: IStyledTheme;
 }
 
 export class Input extends React.PureComponent<IInputProps, {}> {
@@ -60,7 +61,7 @@ export class Input extends React.PureComponent<IInputProps, {}> {
             type={type}
             disabled={disabled}
             onChange={onChange}
-            currency={!!currency}
+            hasCurrency={!!currency}
             isCloseBtnVisible={!!(value && value.length > 0)}
             isInvalid={!!(error && error.length > 0)}
           />
@@ -90,10 +91,7 @@ const InputWrapper = styled.div`
   -webkit-font-smoothing: antialiased;
 `;
 
-const InputStyled = styled<
-  { isInvalid: boolean; isCloseBtnVisible: boolean; currency: boolean },
-  'input'
->('input')`
+const InputStyled = styled<IStyledProps, 'input'>('input')`
   width: 100%;
   height: 40px;
   border: 1px solid #E1E4E7;
@@ -104,7 +102,6 @@ const InputStyled = styled<
   line-height: 40px;
   font-size: 14px;
   border-radius: 4px;
-  box-sizing: border-box;
   outline: 0;
   -webkit-appearance: none;
 
@@ -116,11 +113,11 @@ const InputStyled = styled<
   overflow: hidden;
   text-overflow: ellipsis; 
 
-  padding-left: ${({ currency }: { currency: boolean }) =>
-    currency ? '30px' : '16px'};
+  padding-left: ${(props: IStyledProps) =>
+    props.hasCurrency ? '30px' : '16px'};
 
-  padding-right: ${({ isCloseBtnVisible }: { isCloseBtnVisible: boolean }) =>
-    isCloseBtnVisible ? '40px' : '16px'};
+  padding-right: ${(props: IStyledProps) =>
+    props.isCloseBtnVisible ? '40px' : '16px'};
 
   :hover {
     border-color: #A6ADB6;
@@ -141,27 +138,27 @@ const InputStyled = styled<
     border-color: #E1E4E7;
   }
 
-  ${({ isInvalid }: { isInvalid: boolean }) =>
-    isInvalid
+  ${(props: IStyledProps) =>
+    props.isInvalid
       ? `
-    color: #E50000;
-    background-color: #FBE3E3;
-    border-color: #E50000;
+  color: ${props.theme && props.theme.colors.textErrorColor};
+  background-color: ${props.theme && props.theme.colors.bgErrorDefault};
+  border-color: ${props.theme && props.theme.colors.borderControlError};
 
-    &:hover {
-      border-color: #E50000;
-      background-color: #F9D4D4;
-    }
+  &:hover {
+    border-color: ${props.theme && props.theme.colors.borderControlError};
+    background-color: #F9D4D4;
+  }
 
-    &:focus {
-      border-color: #E50000;
-      background-color: #F9D4D4;
-    }
+  &:focus {
+    border-color: ${props.theme && props.theme.colors.borderControlError};
+    background-color: ${props.theme && props.theme.colors.bgErrorFocus};
+  }
   `
       : '16px'};
 `;
 
-const CurrencyMask = styled<{ isInvalid: boolean }, 'div'>('div')`
+const CurrencyMask = styled<IStyledProps, 'div'>('div')`
   position: absolute;
   top: 0;
   left: 0;
@@ -169,12 +166,10 @@ const CurrencyMask = styled<{ isInvalid: boolean }, 'div'>('div')`
   line-height: 41px;
   padding-left: 16px;
   padding-right: 8px;
-
-  color: ${({ isInvalid }: { isInvalid: boolean }) =>
-    isInvalid ? '#E50000' : '#4F5F6F'};
+  color: ${(props: IStyledProps) => (props.isInvalid ? '#E50000' : '#4F5F6F')};
 `;
 
-const CloseSvgWrapper = styled<{ isInvalid: boolean }, 'button'>('button')`
+const CloseSvgWrapper = styled<IStyledProps, 'button'>('button')`
   position: absolute;
   top: 1px;
   right: 0;
@@ -192,15 +187,15 @@ const CloseSvgWrapper = styled<{ isInvalid: boolean }, 'button'>('button')`
 
   :hover {
     g {
-      stroke: ${({ isInvalid }: { isInvalid: boolean }) =>
-        isInvalid ? '#E50000' : '#A6ADB6'};
+      stroke: ${(props: IStyledProps) =>
+        props.isInvalid ? '#E50000' : '#A6ADB6'};
     }
   }
 
   :focus {
     g {
-      stroke: ${({ isInvalid }: { isInvalid: boolean }) =>
-        isInvalid ? '#B50101' : '#8293A3'};
+      stroke: ${(props: IStyledProps) =>
+        props.isInvalid ? '#B50101' : '#8293A3'};
     }
   }
 
@@ -211,8 +206,8 @@ const CloseSvgWrapper = styled<{ isInvalid: boolean }, 'button'>('button')`
     margin: auto;
 
     g {
-      stroke: ${({ isInvalid }: { isInvalid: boolean }) =>
-        isInvalid ? '#F17878' : '#C0CED8'};
+      stroke: ${(props: IStyledProps) =>
+        props.isInvalid ? '#F17878' : '#C0CED8'};
     }
   }
 `;

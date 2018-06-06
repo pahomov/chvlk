@@ -19,6 +19,7 @@
       "arrow-parameter",
       "property-declaration",
       "member-variable-declaration"
-    ]
+    ],
+    "noConsole": false
   }
 }
