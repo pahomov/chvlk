@@ -2,26 +2,27 @@ export interface IStyledTheme {
   colors: {
     main: string;
     background: string;
-    border: string;
-    palette: {
-      primary: string;
-      secondary: string;
-      action: {
-        disabled: {
-          secondary: string;
-        };
-        hover: {
-          secondary: string;
-        };
-        active: {
-          secondary: string;
-        };
-      };
-    };
-    text: {
-      primary: string;
-      secondary: string;
-    };
+    bgErrorDefault: string;
+    bgErrorFocus: string;
+    bgErrorHover: string;
+
+    bgControlDefault: string;
+    bgControlDisabled: string;
+    bgControlFocus: string;
+    bgControlHover: string;
+
+    borderControlDefault: string;
+    borderControlDisabled: string;
+    borderControlError: string;
+    borderControlFocus: string;
+    borderControlHover: string;
+
+    textControlDefault: string;
+    textControlDisabled: string;
+    textErrorColor: string;
+    textPrimaryColor: string;
+    textSecondaryColor: string;
+    textSecondaryColorHover: string;
   };
 }
 
