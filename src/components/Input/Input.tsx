@@ -1,6 +1,6 @@
 import * as React from 'react';
-import styled from '../../../utils/styled';
-import { IStyledTheme } from '../../themes';
+import styled from 'react-emotion';
+import { PropsWithTheme } from '../../../utils/styledHelpers';
 import CloseSvg from './img/close.svg';
 
 export interface IInputProps {
@@ -14,13 +14,6 @@ export interface IInputProps {
   label?: string;
   error?: string;
   placeholder?: string;
-}
-
-interface IStyledProps {
-  isInvalid?: boolean;
-  hasCurrency?: boolean;
-  isCloseBtnVisible?: boolean;
-  theme?: IStyledTheme;
 }
 
 export class Input extends React.PureComponent<IInputProps, {}> {
@@ -88,15 +81,27 @@ export default Input;
 const InputWrapper = styled.div`
   color: ${({ theme }: { theme: IStyledTheme }): string => theme.colors.main};
   position: relative;
-  -webkit-font-smoothing: antialiased;
 `;
 
-const InputStyled = styled<IStyledProps, 'input'>('input')`
+interface IInputStyledProps {
+  isInvalid: boolean;
+  hasCurrency: boolean;
+  isCloseBtnVisible: boolean;
+}
+
+const InputStyled = styled<IInputStyledProps, 'input'>('input')`
   width: 100%;
   height: 40px;
-  border: 1px solid #E1E4E7;
-  background-color: #EFF5FA;
-  color: #4F5F6F;
+
+  border: 1px solid ${(props: PropsWithTheme<IInputStyledProps>) =>
+    props.theme.colors.borderControlDefault};
+
+  background-color: ${(props: PropsWithTheme<IInputStyledProps>) =>
+    props.theme.colors.bgControlDefault};
+  
+  color: ${(props: PropsWithTheme<IInputStyledProps>) =>
+    props.theme.colors.textControlDefault};
+
   padding-left: 16px;
   padding-right: 16px;
   line-height: 40px;
@@ -113,52 +118,68 @@ const InputStyled = styled<IStyledProps, 'input'>('input')`
   overflow: hidden;
   text-overflow: ellipsis; 
 
-  padding-left: ${(props: IStyledProps) =>
+  padding-left: ${(props: PropsWithTheme<IInputStyledProps>) =>
     props.hasCurrency ? '30px' : '16px'};
 
-  padding-right: ${(props: IStyledProps) =>
+  padding-right: ${(props: PropsWithTheme<IInputStyledProps>) =>
     props.isCloseBtnVisible ? '40px' : '16px'};
 
   :hover {
-    border-color: #A6ADB6;
+    border-color: ${(props: PropsWithTheme<IInputStyledProps>) =>
+      props.theme.colors.borderControlHover};
+      
+    background-color: ${(props: PropsWithTheme<IInputStyledProps>) =>
+      props.theme.colors.bgControlHover};
   }
 
   :focus {
-    background-color: #DEEBF5;
-    border-color: #A6ADB6;
+    background-color: ${(props: PropsWithTheme<IInputStyledProps>) =>
+      props.theme.colors.bgControlFocus};
+    
+    border-color: ${(props: PropsWithTheme<IInputStyledProps>) =>
+      props.theme.colors.borderControlFocus};
   }
 
   :disabled {
-    border-color: #F0F2F3;
-    background-color: #FAFDFF;
+    border-color: ${(props: PropsWithTheme<IInputStyledProps>) =>
+      props.theme.colors.borderControlDisabled};
+      
+    background-color: ${(props: PropsWithTheme<IInputStyledProps>) =>
+      props.theme.colors.bgControlDisabled};
   }
 
   :read-only {
     background-color: #F9F9F9;
-    border-color: #E1E4E7;
+
+    border-color: ${(props: PropsWithTheme<IInputStyledProps>) =>
+      props.theme.colors.borderControlDefault};
   }
 
-  ${(props: IStyledProps) =>
+  ${(props: PropsWithTheme<IInputStyledProps>) =>
     props.isInvalid
       ? `
-  color: ${props.theme && props.theme.colors.textErrorColor};
-  background-color: ${props.theme && props.theme.colors.bgErrorDefault};
-  border-color: ${props.theme && props.theme.colors.borderControlError};
+  color: ${props.theme.colors.textErrorColor};
+  background-color: ${props.theme.colors.bgErrorDefault};
+  border-color: ${props.theme.colors.borderControlError};
 
   &:hover {
-    border-color: ${props.theme && props.theme.colors.borderControlError};
+    border-color: ${props.theme.colors.borderControlError};
     background-color: #F9D4D4;
   }
 
   &:focus {
-    border-color: ${props.theme && props.theme.colors.borderControlError};
-    background-color: ${props.theme && props.theme.colors.bgErrorFocus};
+    border-color: ${props.theme.colors.borderControlError};
+    background-color: ${props.theme.colors.bgErrorFocus};
   }
   `
       : '16px'};
 `;
 
-const CurrencyMask = styled<IStyledProps, 'div'>('div')`
+interface ICurrencyMaskProps {
+  isInvalid: boolean;
+}
+
+const CurrencyMask = styled<ICurrencyMaskProps, 'div'>('div')`
   position: absolute;
   top: 0;
   left: 0;
@@ -166,10 +187,15 @@ const CurrencyMask = styled<IStyledProps, 'div'>('div')`
   line-height: 41px;
   padding-left: 16px;
   padding-right: 8px;
-  color: ${(props: IStyledProps) => (props.isInvalid ? '#E50000' : '#4F5F6F')};
+  color: ${(props: ICurrencyMaskProps) =>
+    props.isInvalid ? '#E50000' : '#4F5F6F'};
 `;
 
-const CloseSvgWrapper = styled<IStyledProps, 'button'>('button')`
+interface ICloseSvgWrapperProps {
+  isInvalid: boolean;
+}
+
+const CloseSvgWrapper = styled<ICloseSvgWrapperProps, 'button'>('button')`
   position: absolute;
   top: 1px;
   right: 0;
@@ -187,14 +213,14 @@ const CloseSvgWrapper = styled<IStyledProps, 'button'>('button')`
 
   :hover {
     g {
-      stroke: ${(props: IStyledProps) =>
+      stroke: ${(props: ICloseSvgWrapperProps) =>
         props.isInvalid ? '#E50000' : '#A6ADB6'};
     }
   }
 
   :focus {
     g {
-      stroke: ${(props: IStyledProps) =>
+      stroke: ${(props: ICloseSvgWrapperProps) =>
         props.isInvalid ? '#B50101' : '#8293A3'};
     }
   }
@@ -206,7 +232,7 @@ const CloseSvgWrapper = styled<IStyledProps, 'button'>('button')`
     margin: auto;
 
     g {
-      stroke: ${(props: IStyledProps) =>
+      stroke: ${(props: ICloseSvgWrapperProps) =>
         props.isInvalid ? '#F17878' : '#C0CED8'};
     }
   }
@@ -215,7 +241,10 @@ const CloseSvgWrapper = styled<IStyledProps, 'button'>('button')`
 const Label = styled.div`
   font-size: 13px;
   line-height: 18px;
-  color: #8293A3;
+  
+  color: ${({ theme }: PropsWithTheme<{}>): string =>
+    theme.colors.textSecondaryColor};
+
   margin-bottom: 8px;
 `;
 
@@ -224,4 +253,6 @@ const ErrorMessage = styled.div`
   color: #E50000;
   font-size: 12px;
   line-height: 17px;
+  color: ${({ theme }: PropsWithTheme<{}>): string =>
+    theme.colors.textErrorColor};
 `;
