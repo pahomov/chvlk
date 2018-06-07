@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from 'react-emotion';
-import { IStyledTheme } from '../../themes';
+import { PropsWithTheme } from '../../../utils/styledHelpers';
 import InfoIcon from './img/info.svg';
 import TriangleIcon from './img/triangle.svg';
 
@@ -56,9 +56,9 @@ export class Note extends React.PureComponent<INoteProps, INoteState> {
 const Collapsible = styled<{ isOpen: boolean }, 'div'>('div')`
   padding-top: 11px;
   display: ${({ isOpen }: { isOpen: boolean }) => (isOpen ? 'block' : 'none')};
-  border-bottom: 1px solid ${({ theme }: { theme: IStyledTheme }): string =>
+  border-bottom: 1px solid ${({ theme }: PropsWithTheme<{}>): string =>
     theme.colors.borderControlDefault};
-  color: ${({ theme }: { theme: IStyledTheme }): string =>
+  color: ${({ theme }: PropsWithTheme<{}>): string =>
     theme.colors.textPrimaryColor};
 `;
 
@@ -68,7 +68,7 @@ const Top = styled('div')`
   &:after {
     content: " ";
     height: 1px;
-    background-color: ${({ theme }: { theme: IStyledTheme }): string =>
+    background-color: ${({ theme }: PropsWithTheme<{}>): string =>
       theme.colors.borderControlDefault};
     flex-grow: 1;
   }
@@ -81,26 +81,26 @@ const ActiveArea = styled('div')`
   margin-right: 16px;
   font-size: 13px;
   user-select: none;
-  color: ${({ theme }: { theme: IStyledTheme }): string =>
+  color: ${({ theme }: PropsWithTheme<{}>): string =>
     theme.colors.textSecondaryColor};
   & svg {
     transition: fill 0.12s ease;
-    fill: ${({ theme }: { theme: IStyledTheme }): string =>
+    fill: ${({ theme }: PropsWithTheme<{}>): string =>
       theme.colors.textSecondaryColor};
   }
   &:hover {
-    color: ${({ theme }: { theme: IStyledTheme }): string =>
+    color: ${({ theme }: PropsWithTheme<{}>): string =>
       theme.colors.textSecondaryColorHover};
     svg {
-      fill: ${({ theme }: { theme: IStyledTheme }): string =>
+      fill: ${({ theme }: PropsWithTheme<{}>): string =>
         theme.colors.textSecondaryColorHover};
     }
   }
   &:active {
-    color: ${({ theme }: { theme: IStyledTheme }): string =>
-      theme.colors.textSecondaryColorHover};;
+    color: ${({ theme }: PropsWithTheme<{}>): string =>
+      theme.colors.textSecondaryColorHover};
     svg {
-      fill: ${({ theme }: { theme: IStyledTheme }): string =>
+      fill: ${({ theme }: PropsWithTheme<{}>): string =>
         theme.colors.textSecondaryColorHover};
     }
   }
