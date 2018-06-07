@@ -2,27 +2,27 @@ import { IStyledTheme } from './';
 
 const colors = {
   background: '#FFF',
-  border: '#EAEAEA',
-  main: '#FD7823',
-  palette: {
-    action: {
-      active: {
-        secondary: '#435261',
-      },
-      disabled: {
-        secondary: '#AFB8C0',
-      },
-      hover: {
-        secondary: '#5C6E7E',
-      },
-    },
-    primary: '#2A3642',
-    secondary: '#8193A4',
-  },
-  text: {
-    primary: '#2A3642',
-    secondary: '#8193A4',
-  },
+  bgErrorDefault: '#FDF2F2',
+  bgErrorFocus: '#F9D4D4',
+  bgErrorHover: '#FBE3E3',
+
+  bgControlDefault: '#F5FAFE',
+  bgControlDisabled: '#FAFDFF',
+  bgControlFocus: '#DEEBF5',
+  bgControlHover: '#EFF5FA',
+
+  borderControlDefault: '#E1E4E7',
+  borderControlDisabled: '#F0F2F3',
+  borderControlError: '#E50000',
+  borderControlFocus: '#A6ADB6',
+  borderControlHover: '#A6ADB6',
+
+  textControlDefault: '#4F5F6F',
+  textControlDisabled: '#C8CFD5',
+  textErrorColor: '#E50000',
+  textPrimaryColor: '#2A3642',
+  textSecondaryColor: '#8293A3',
+  textSecondaryColorHover: '#5C6E7E',
 };
 
 const theme: IStyledTheme = {

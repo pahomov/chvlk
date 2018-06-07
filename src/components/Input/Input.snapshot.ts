@@ -5,12 +5,12 @@ const snapshots = [
   {
     props: {
       currency: '$',
-      error: 'текст ошибки',
-      label: 'Инпут в дефолтном состоянии с валютой и кнопкой очистить',
+      error: 'Message Error',
+      label: 'Input with error and label',
       onChange: jest.fn(),
-      onClick: jest.fn(),
+      onClear: jest.fn(),
       type: 'text',
-      value: 'sdfsdfsdf',
+      value: 'test value',
     },
   },
 ];

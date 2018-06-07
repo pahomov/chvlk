@@ -7,7 +7,7 @@ export interface IInputProps {
   type: string;
   value: string;
   onChange: (event: React.SyntheticEvent<HTMLInputElement>) => void;
-  onClick: (event: React.SyntheticEvent<HTMLButtonElement>) => void;
+  onClear: (event: React.SyntheticEvent<HTMLButtonElement>) => void;
   disabled?: boolean;
   readonly?: boolean;
   currency?: string;
@@ -19,7 +19,7 @@ export interface IInputProps {
 export class Input extends React.PureComponent<IInputProps, {}> {
   public static displayName: string = 'Input';
 
-  public static defaultProps: IDefaultPropsType = {
+  public static defaultProps: Partial<IInputProps> = {
     error: '',
     type: 'text',
     value: '',
@@ -34,7 +34,7 @@ export class Input extends React.PureComponent<IInputProps, {}> {
       currency,
       label,
       error,
-      onClick,
+      onClear,
       placeholder,
     } = this.props;
 
@@ -61,9 +61,9 @@ export class Input extends React.PureComponent<IInputProps, {}> {
 
           {value &&
             value.length > 0 &&
-            onClick &&
+            onClear &&
             <CloseSvgWrapper
-              onClick={this.props.onClick}
+              onClick={this.props.onClear}
               isInvalid={!!(error && error.length > 0)}
             >
               <CloseSvg />
@@ -78,8 +78,7 @@ export class Input extends React.PureComponent<IInputProps, {}> {
 
 export default Input;
 
-const InputWrapper = styled.div`
-  color: ${({ theme }: { theme: IStyledTheme }): string => theme.colors.main};
+const InputWrapper = styled('div')`
   position: relative;
 `;
 
@@ -108,7 +107,6 @@ const InputStyled = styled<IInputStyledProps, 'input'>('input')`
   font-size: 14px;
   border-radius: 4px;
   outline: 0;
-  -webkit-appearance: none;
 
   transition-property: background-color, border-color;
   transition-duration: 0.2s;
@@ -139,7 +137,7 @@ const InputStyled = styled<IInputStyledProps, 'input'>('input')`
     border-color: ${(props: PropsWithTheme<IInputStyledProps>) =>
       props.theme.colors.borderControlFocus};
   }
-
+  
   :disabled {
     border-color: ${(props: PropsWithTheme<IInputStyledProps>) =>
       props.theme.colors.borderControlDisabled};
@@ -147,7 +145,7 @@ const InputStyled = styled<IInputStyledProps, 'input'>('input')`
     background-color: ${(props: PropsWithTheme<IInputStyledProps>) =>
       props.theme.colors.bgControlDisabled};
   }
-
+  
   :read-only {
     background-color: #F9F9F9;
 
@@ -172,7 +170,7 @@ const InputStyled = styled<IInputStyledProps, 'input'>('input')`
     background-color: ${props.theme.colors.bgErrorFocus};
   }
   `
-      : '16px'};
+      : ''};
 `;
 
 interface ICurrencyMaskProps {
@@ -238,7 +236,7 @@ const CloseSvgWrapper = styled<ICloseSvgWrapperProps, 'button'>('button')`
   }
 `;
 
-const Label = styled.div`
+const Label = styled('div')`
   font-size: 13px;
   line-height: 18px;
   
@@ -248,9 +246,8 @@ const Label = styled.div`
   margin-bottom: 8px;
 `;
 
-const ErrorMessage = styled.div`
+const ErrorMessage = styled('div')`
   margin-top: 8px;
-  color: #E50000;
   font-size: 12px;
   line-height: 17px;
   color: ${({ theme }: PropsWithTheme<{}>): string =>

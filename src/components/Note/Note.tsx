@@ -57,9 +57,9 @@ const Collapsible = styled<{ isOpen: boolean }, 'div'>('div')`
   padding-top: 11px;
   display: ${({ isOpen }: { isOpen: boolean }) => (isOpen ? 'block' : 'none')};
   border-bottom: 1px solid ${({ theme }: { theme: IStyledTheme }): string =>
-    theme.colors.border};
+    theme.colors.borderControlDefault};
   color: ${({ theme }: { theme: IStyledTheme }): string =>
-    theme.colors.text.primary};
+    theme.colors.textPrimaryColor};
 `;
 
 const Top = styled('div')`
@@ -69,7 +69,7 @@ const Top = styled('div')`
     content: " ";
     height: 1px;
     background-color: ${({ theme }: { theme: IStyledTheme }): string =>
-      theme.colors.border};
+      theme.colors.borderControlDefault};
     flex-grow: 1;
   }
 `;
@@ -82,26 +82,26 @@ const ActiveArea = styled('div')`
   font-size: 13px;
   user-select: none;
   color: ${({ theme }: { theme: IStyledTheme }): string =>
-    theme.colors.text.secondary};
+    theme.colors.textSecondaryColor};
   & svg {
     transition: fill 0.12s ease;
     fill: ${({ theme }: { theme: IStyledTheme }): string =>
-      theme.colors.palette.secondary};
+      theme.colors.textSecondaryColor};
   }
   &:hover {
     color: ${({ theme }: { theme: IStyledTheme }): string =>
-      theme.colors.palette.action.hover.secondary};
+      theme.colors.textSecondaryColorHover};
     svg {
       fill: ${({ theme }: { theme: IStyledTheme }): string =>
-        theme.colors.palette.action.hover.secondary};
+        theme.colors.textSecondaryColorHover};
     }
   }
   &:active {
     color: ${({ theme }: { theme: IStyledTheme }): string =>
-      theme.colors.palette.action.active.secondary};;
+      theme.colors.textSecondaryColorHover};;
     svg {
       fill: ${({ theme }: { theme: IStyledTheme }): string =>
-        theme.colors.palette.action.active.secondary};
+        theme.colors.textSecondaryColorHover};
     }
   }
 `;

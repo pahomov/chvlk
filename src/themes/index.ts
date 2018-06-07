@@ -1,6 +1,5 @@
 export interface IStyledTheme {
   colors: {
-    main: string;
     background: string;
     bgErrorDefault: string;
     bgErrorFocus: string;
