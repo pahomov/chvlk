@@ -4,9 +4,6 @@ const getDirectories = require('./utils/getDirectories');
 // entry points
 const entry = {};
 
-// add index to entry
-entry.index = path.join(__dirname, 'src', 'index.ts');
-
 // add components to entry
 const componentsPath = path.join(__dirname, 'src', 'components');
 getDirectories(componentsPath).reduce((total, cur) => {
