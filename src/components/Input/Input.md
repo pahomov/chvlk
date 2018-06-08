@@ -1,12 +1,12 @@
 ```
 
 <Input
-  type='email'
+  type='text'
   value='test value'
   onChange={() => {}}
   currency='€'
   label='Input label'
   error='Error message'
-  onClick={() => {}}
+  onClear={() => {}}
 />
 ```

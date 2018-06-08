@@ -1,5 +1,5 @@
 import * as React from 'react';
-import mount from '../../../utils/mount';
+import { mount } from '../../../utils/render';
 import Input from './';
 
 test('Input value is displayed correctly', () => {
