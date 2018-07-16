@@ -3,7 +3,7 @@ import { mount } from '../../../utils/render';
 import Spinner from './';
 
 test('Spinner should have at least one functional test', () => {
-  mount(<Spinner>test</Spinner>);
+  mount(<Spinner />);
 
   expect(true).toEqual(true);
 });

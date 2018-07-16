@@ -4,10 +4,10 @@ import Button from './';
 
 test('Button should render text inside from props', () => {
   const props = {
-    text: "save",
-    onClick: jest.fn(),
-    type: "primary",
     isLoading: false,
+    onClick: jest.fn(),
+    text: 'save',
+    type: 'primary',
   };
 
   const wrapper = mount(<Button {...props} />);
