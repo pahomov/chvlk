@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button snapshots 1`] = `
+<Styled(button)
+  disabled={false}
+  isLoading={false}
+  onClick={[MockFunction]}
+  type="primary"
+>
+  save
+</Styled(button)>
+`;

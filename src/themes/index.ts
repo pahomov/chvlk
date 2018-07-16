@@ -16,6 +16,10 @@ export interface IStyledTheme {
     borderControlFocus: string;
     borderControlHover: string;
 
+    linkActive: string;
+    linkDefault: string;
+    linkHover: string;
+
     textControlDefault: string;
     textControlDisabled: string;
     textErrorColor: string;

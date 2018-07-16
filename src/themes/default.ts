@@ -17,6 +17,10 @@ const colors = {
   borderControlFocus: '#A6ADB6',
   borderControlHover: '#A6ADB6',
 
+  linkActive: '#D36200',
+  linkDefault: '#FD7823',
+  linkHover: '#E96C00',
+
   textControlDefault: '#4F5F6F',
   textControlDisabled: '#C8CFD5',
   textErrorColor: '#E50000',
