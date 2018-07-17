@@ -55,8 +55,7 @@ const StyledButton = styled<IButtonStyledProps, 'button'>('button')`
   text-align: center;
   line-height: 18px;
   font-weight: 500;
-  padding: 11px 16px;
-  padding-bottom: 10px;
+  padding: 11px 16px 10px;
   cursor: pointer;
   box-shadow: none;
   text-transform: uppercase;
