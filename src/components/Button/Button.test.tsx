@@ -8,7 +8,6 @@ test('Button should render text inside from props', () => {
     isLoading: false,
     onClick: jest.fn(),
     text: 'save',
-    type: 'primary',
   };
 
   const wrapper = mount(<Button {...props} />);

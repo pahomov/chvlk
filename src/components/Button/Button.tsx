@@ -7,10 +7,10 @@ import Spinner from '../Spinner';
 export interface IButtonProps {
   onClick: (event: React.SyntheticEvent<HTMLButtonElement>) => void;
   text: string;
-  type: string;
   disabled?: boolean;
   isLoading?: boolean;
   fullWidth?: boolean;
+  secondary?: boolean;
 }
 
 export class Button extends React.PureComponent<IButtonProps, {}> {
@@ -20,14 +20,22 @@ export class Button extends React.PureComponent<IButtonProps, {}> {
     disabled: false,
     fullWidth: false,
     isLoading: false,
+    secondary: false,
   };
 
   public render(): JSX.Element {
-    const { disabled, isLoading, text, type, onClick, fullWidth } = this.props;
+    const {
+      disabled,
+      isLoading,
+      text,
+      secondary,
+      onClick,
+      fullWidth,
+    } = this.props;
 
     return (
       <StyledButton
-        type={type}
+        secondary={!!secondary}
         onClick={onClick}
         disabled={disabled}
         isLoading={isLoading}
@@ -42,7 +50,7 @@ export class Button extends React.PureComponent<IButtonProps, {}> {
 
 interface IButtonStyledProps {
   isLoading?: boolean;
-  type: string;
+  secondary: boolean;
   fullWidth: boolean;
 }
 
@@ -69,7 +77,7 @@ const StyledButton = styled<IButtonStyledProps, 'button'>('button')`
     props.fullWidth && 'width: 100%;'};
 
   ${(props: PropsWithTheme<IButtonStyledProps>) =>
-    props.type === 'primary'
+    !props.secondary
       ? `
     background-color: ${props.theme.colors.linkDefault};
     border: 1px solid transparent;

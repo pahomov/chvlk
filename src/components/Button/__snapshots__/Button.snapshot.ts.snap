@@ -6,7 +6,7 @@ exports[`Button snapshots 1`] = `
   fullWidth={false}
   isLoading={false}
   onClick={[MockFunction]}
-  type="primary"
+  secondary={false}
 >
   save
 </Styled(button)>

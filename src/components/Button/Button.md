@@ -1,7 +1,6 @@
 ```
 <Button
-  text="save" 
-  type="primary"
+  text="save"
   isLoading={false} 
   onClick={() => {}}
 />
@@ -11,7 +10,7 @@
 
 <Button
   text="cancel" 
-  type="secondary"
+  secondary
   isLoading={false} 
   onClick={() => {}}
 />
