@@ -4,6 +4,7 @@ import Button from './';
 
 test('Button should render text inside from props', () => {
   const props = {
+    fullWidth: false,
     isLoading: false,
     onClick: jest.fn(),
     text: 'save',

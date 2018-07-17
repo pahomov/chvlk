@@ -3,6 +3,7 @@
 exports[`Button snapshots 1`] = `
 <Styled(button)
   disabled={false}
+  fullWidth={false}
   isLoading={false}
   onClick={[MockFunction]}
   type="primary"

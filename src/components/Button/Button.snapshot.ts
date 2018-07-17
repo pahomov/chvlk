@@ -4,6 +4,7 @@ import Button, { IButtonProps } from './Button';
 const snapshots = [
   {
     props: {
+      fullWidth: false,
       isLoading: false,
       onClick: jest.fn(),
       text: 'save',

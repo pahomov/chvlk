@@ -10,6 +10,7 @@ export interface IButtonProps {
   type: string;
   disabled?: boolean;
   isLoading?: boolean;
+  fullWidth?: boolean;
 }
 
 export class Button extends React.PureComponent<IButtonProps, {}> {
@@ -17,11 +18,12 @@ export class Button extends React.PureComponent<IButtonProps, {}> {
 
   public static defaultProps: Partial<IButtonProps> = {
     disabled: false,
+    fullWidth: false,
     isLoading: false,
   };
 
   public render(): JSX.Element {
-    const { disabled, isLoading, text, type, onClick } = this.props;
+    const { disabled, isLoading, text, type, onClick, fullWidth } = this.props;
 
     return (
       <StyledButton
@@ -29,6 +31,7 @@ export class Button extends React.PureComponent<IButtonProps, {}> {
         onClick={onClick}
         disabled={disabled}
         isLoading={isLoading}
+        fullWidth={!!fullWidth}
       >
         {text}
         {isLoading && <Spinner />}
@@ -40,6 +43,7 @@ export class Button extends React.PureComponent<IButtonProps, {}> {
 interface IButtonStyledProps {
   isLoading?: boolean;
   type: string;
+  fullWidth: boolean;
 }
 
 const StyledButton = styled<IButtonStyledProps, 'button'>('button')`
@@ -61,6 +65,9 @@ const StyledButton = styled<IButtonStyledProps, 'button'>('button')`
   transition-duration: 0.15s;
   transition-timing-function: ease-in;
   outline: none;
+
+  ${(props: PropsWithTheme<IButtonStyledProps>) =>
+    props.fullWidth && 'width: 100%;'};
 
   ${(props: PropsWithTheme<IButtonStyledProps>) =>
     props.type === 'primary'
