@@ -35,11 +35,11 @@ export class Button extends React.PureComponent<IButtonProps, {}> {
 
     return (
       <StyledButton
-        secondary={!!secondary}
+        secondary={secondary!}
         onClick={onClick}
         disabled={disabled}
         isLoading={isLoading}
-        fullWidth={!!fullWidth}
+        fullWidth={fullWidth!}
       >
         {text}
         {isLoading && <Spinner />}
