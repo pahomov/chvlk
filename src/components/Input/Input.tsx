@@ -64,6 +64,7 @@ export class Input extends React.PureComponent<IInputProps, {}> {
             onClear &&
             <CloseSvgWrapper
               onClick={this.props.onClear}
+              disabled={disabled!}
               isInvalid={!!(error && error.length > 0)}
             >
               <CloseSvg />
@@ -191,6 +192,7 @@ const CurrencyMask = styled<ICurrencyMaskProps, 'div'>('div')`
 
 interface ICloseSvgWrapperProps {
   isInvalid: boolean;
+  disabled: boolean;
 }
 
 const CloseSvgWrapper = styled<ICloseSvgWrapperProps, 'button'>('button')`
@@ -199,7 +201,6 @@ const CloseSvgWrapper = styled<ICloseSvgWrapperProps, 'button'>('button')`
   right: 0;
   width: 40px;
   height: 100%;
-  cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -208,6 +209,9 @@ const CloseSvgWrapper = styled<ICloseSvgWrapperProps, 'button'>('button')`
   box-shadow: none;
   background-color: transparent;
   outline: 0;
+
+  ${(props: ICloseSvgWrapperProps) =>
+    props.disabled ? 'pointer-events: none;' : 'cursor: pointer;'};
 
   :hover {
     g {
