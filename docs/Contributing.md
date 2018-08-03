@@ -69,7 +69,7 @@ npm start
 
 When you want to stop and add your changes to git you have to add files to index:
 ```sh
-git add -all
+git add --all
 ```
 **And run [commitizen](https://www.npmjs.com/package/commitizen) instead of running `git commit`**:
 ```sh
