@@ -24,17 +24,18 @@ const StyledSpinner = styled('div')`
   left: 50%;
   z-index: 20;
   transform: translateX(-50%) translateY(-50%);
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   user-select: none;
+  font-size: 12px;
 
   :before {
     position: absolute;
     content: "";
     top: 0%;
     left: 50%;
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     border-radius: 500rem;
     border-width: 0.2em;
     border-style: solid;
@@ -48,8 +49,8 @@ const StyledSpinner = styled('div')`
     top: 0%;
     left: 50%;
     box-shadow: transparent 0px 0px 0px 1px;
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     animation: ${spin} 0.6s linear infinite;
     border-radius: 500rem;
     border-color: #fff transparent transparent;

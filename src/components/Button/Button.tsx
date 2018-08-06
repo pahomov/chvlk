@@ -11,6 +11,7 @@ export interface IButtonProps {
   isLoading?: boolean;
   fullWidth?: boolean;
   secondary?: boolean;
+  large?: boolean;
 }
 
 export class Button extends React.PureComponent<IButtonProps, {}> {
@@ -20,6 +21,7 @@ export class Button extends React.PureComponent<IButtonProps, {}> {
     disabled: false,
     fullWidth: false,
     isLoading: false,
+    large: false,
     secondary: false,
   };
 
@@ -31,6 +33,7 @@ export class Button extends React.PureComponent<IButtonProps, {}> {
       secondary,
       onClick,
       fullWidth,
+      large,
     } = this.props;
 
     return (
@@ -40,6 +43,7 @@ export class Button extends React.PureComponent<IButtonProps, {}> {
         disabled={disabled}
         isLoading={isLoading}
         fullWidth={fullWidth!}
+        large={large!}
       >
         {text}
         {isLoading && <Spinner />}
@@ -52,26 +56,36 @@ interface IButtonStyledProps {
   isLoading?: boolean;
   secondary: boolean;
   fullWidth: boolean;
+  large: boolean;
 }
 
 const StyledButton = styled<IButtonStyledProps, 'button'>('button')`
   position: relative;
   display: inline-block;
   border-radius: 4px;
-  font-size: 12px;
   color: #fff;
   text-align: center;
   line-height: 18px;
   font-weight: 500;
-  padding: 11px 16px 10px;
   cursor: pointer;
   box-shadow: none;
   text-transform: uppercase;
-  white-space: nowrap;
   transition-property: background-color, color, border;
   transition-duration: 0.15s;
   transition-timing-function: ease-in;
   outline: none;
+
+  ${(props: PropsWithTheme<IButtonStyledProps>) =>
+    props.large
+      ? `
+      font-size: 18px;
+      padding: 15px 40px 14px 40px;
+      line-height: 24px;
+    `
+      : `
+        font-size: 12px;
+        padding: 11px 16px 10px;  
+      `};
 
   ${(props: PropsWithTheme<IButtonStyledProps>) =>
     props.fullWidth && 'width: 100%;'};

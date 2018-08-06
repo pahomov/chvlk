@@ -5,6 +5,7 @@ exports[`Button snapshots 1`] = `
   disabled={false}
   fullWidth={false}
   isLoading={false}
+  large={false}
   onClick={[MockFunction]}
   secondary={false}
 >
