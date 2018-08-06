@@ -8,7 +8,6 @@ const snapshots = [
       isLoading: false,
       onClick: jest.fn(),
       text: 'save',
-      type: 'primary',
     },
   },
 ];
