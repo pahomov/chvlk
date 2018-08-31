@@ -1,6 +1,7 @@
+/* tslint:disable:max-line-length */
 import * as React from 'react';
 
-export class SvgComponent extends React.PureComponent<{}, {}> {
+export class CloseSvg extends React.PureComponent<{}, {}> {
   public render(): JSX.Element {
     return (
       <svg width={12} height={12} {...this.props}>
@@ -12,4 +13,4 @@ export class SvgComponent extends React.PureComponent<{}, {}> {
   }
 }
 
-export default SvgComponent;
+export default CloseSvg;

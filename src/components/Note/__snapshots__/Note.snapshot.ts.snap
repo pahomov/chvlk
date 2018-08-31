@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Note snapshots 1`] = `
-<div>
+<React.Fragment>
   <Styled(div)>
     <Styled(div)
       onClick={[Function]}
     >
-      <Styled(SvgComponent) />
+      <Styled(InfoSvg) />
       <Styled(span)>
         Hide help
       </Styled(span)>
@@ -20,5 +20,5 @@ exports[`Note snapshots 1`] = `
   >
     test
   </Styled(div)>
-</div>
+</React.Fragment>
 `;
