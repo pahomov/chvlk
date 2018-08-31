@@ -1,8 +1,8 @@
 import * as React from 'react';
 import styled from 'react-emotion';
 import { PropsWithTheme } from '../../../utils/styledHelpers';
-import InfoIcon from './img/info.svg';
-import TriangleIcon from './img/triangle.svg';
+import InfoIcon from './img/info';
+import TriangleIcon from './img/triangle';
 
 import {
   getItem as localStorageGet,

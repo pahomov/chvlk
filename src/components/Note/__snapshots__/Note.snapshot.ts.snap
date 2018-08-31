@@ -6,7 +6,7 @@ exports[`Note snapshots 1`] = `
     <Styled(div)
       onClick={[Function]}
     >
-      <Styled(info.svg) />
+      <Styled(SvgComponent) />
       <Styled(span)>
         Hide help
       </Styled(span)>

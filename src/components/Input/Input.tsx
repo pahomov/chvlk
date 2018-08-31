@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'react-emotion';
 import { PropsWithTheme } from '../../../utils/styledHelpers';
-import CloseSvg from './img/close.svg';
+import CloseSvg from './img/close';
 
 export interface IInputProps {
   type: string;

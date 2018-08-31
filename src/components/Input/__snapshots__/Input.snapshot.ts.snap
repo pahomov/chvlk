@@ -23,7 +23,7 @@ exports[`Input snapshots 1`] = `
       isInvalid={true}
       onClick={[MockFunction]}
     >
-      <close.svg />
+      <SvgComponent />
     </Styled(button)>
   </Styled(div)>
   <Styled(div)>

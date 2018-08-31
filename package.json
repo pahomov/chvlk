@@ -4,6 +4,7 @@
   "description": "Chuvelk [tʃuvèlk] – yet another ui-kit written with typescript and react",
   "main": "index.js",
   "scripts": {
+    "dev": "tsc -w",
     "start": "styleguidist server",
     "test": "jest",
     "testWatch": "jest --watch",
@@ -14,7 +15,7 @@
     "_report": "cat ./coverage/lcov.info | codecov",
     "_clear:coverage": "rm -rf ./coverage",
     "_build": "npm run _build:lib && npm run _build:styleguide",
-    "_build:lib": "npm run _clear:lib && webpack",
+    "_build:lib": "npm run _clear:lib && tsc",
     "_clear:lib": "ls | grep -E '^[A-Z][a-z]|index|themes' | xargs rm -rf",
     "_clear:styleguide": "rm -rf ./styleguide",
     "_build:styleguide": "npm run _clear:styleguide && styleguidist build",
@@ -61,8 +62,7 @@
     "tslint-config-prettier": "^1.13.0",
     "tslint-loader": "^3.6.0",
     "tslint-react": "^3.6.0",
-    "typescript": "^2.9.2",
-    "webpack": "2.6.1"
+    "typescript": "^2.9.2"
   },
   "peerDependencies": {
     "emotion": "^9.1.3",
@@ -72,7 +72,7 @@
     "react-emotion": "^9.1.3"
   },
   "jest": {
-    "collectCoverage": true,
+    "collectCoverage": false,
     "collectCoverageFrom": [
       "**/src/components/**/*.ts?(x)",
       "!**/src/components/**/*.snapshot.ts",
