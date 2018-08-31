@@ -62,7 +62,8 @@
     "tslint-config-prettier": "^1.13.0",
     "tslint-loader": "^3.6.0",
     "tslint-react": "^3.6.0",
-    "typescript": "^2.9.2"
+    "typescript": "^2.9.2",
+    "webpack": "^4.17.1"
   },
   "peerDependencies": {
     "emotion": "^9.1.3",
