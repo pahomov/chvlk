@@ -1,12 +1,14 @@
+/* tslint:disable:max-line-length */
 import * as React from 'react';
 
 export class SvgComponent extends React.PureComponent<{}, {}> {
   public render(): JSX.Element {
     return (
-      <svg width={12} height={12} {...this.props}>
-        <g stroke="#C0CED8" strokeWidth={1.4}>
-          <path d="M11.9 0L.47 11.44M.47 0L11.9 11.44" />
-        </g>
+      <svg viewBox="0 0 10 4" {...this.props}>
+        <path
+          d="M9.83 3.877a.744.744 0 0 1-.822-.004L5 1.043.986 3.877a.742.742 0 0 1-.816 0c-.226-.164-.226-.43-.001-.592L4.59.123a.744.744 0 0 1 .82 0l4.42 3.163c.227.163.227.427 0 .591z"
+          fillRule="nonzero"
+        />
       </svg>
     );
   }

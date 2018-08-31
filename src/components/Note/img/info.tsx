@@ -1,15 +1,21 @@
+/* tslint:disable:max-line-length */
 import * as React from 'react';
 
-export class SvgComponent extends React.PureComponent<{}, {}> {
+export class InfoSvg extends React.PureComponent<{}, {}> {
   public render(): JSX.Element {
     return (
-      <svg width={12} height={12} {...this.props}>
-        <g stroke="#C0CED8" strokeWidth={1.4}>
-          <path d="M11.9 0L.47 11.44M.47 0L11.9 11.44" />
+      <svg viewBox="0 0 16 16" {...this.props}>
+        <g fillRule="evenodd">
+          <circle cx={8} cy={8} r={8} />
+          <path
+            d="M6.3 6.768v-.486c.167-.064.367-.13.6-.194.267-.065.533-.13.8-.162.267-.064.567-.097.833-.129.267-.032.534-.065.734-.065l.266.162-1.366 6.309h1.066v.518c-.133.097-.3.161-.466.258-.167.065-.367.162-.567.227-.2.065-.4.097-.6.13-.2.032-.4.064-.567.064-.4 0-.633-.065-.8-.227-.133-.129-.233-.29-.233-.452 0-.195 0-.389.033-.583.034-.194.067-.388.134-.615L7.2 6.962l-.9-.194zm1.267-3.3c0-.324.1-.583.333-.777a1.33 1.33 0 0 1 .867-.291c.366 0 .7.097.9.291.233.194.333.453.333.777 0 .323-.1.55-.333.744-.234.194-.534.29-.9.29-.367 0-.634-.096-.867-.29s-.333-.453-.333-.744z"
+            fill="#fff"
+            fillRule="nonzero"
+          />
         </g>
       </svg>
     );
   }
 }
 
-export default SvgComponent;
+export default InfoSvg;

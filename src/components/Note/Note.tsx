@@ -62,10 +62,10 @@ export class Note extends React.PureComponent<INoteProps, INoteState> {
   }
 
   public render(): JSX.Element {
-    const { hideActionName, showActionName, storageKey, ...other } = this.props;
+    const { hideActionName, showActionName } = this.props;
     const { isOpen } = this.state;
     return (
-      <div {...other}>
+      <React.Fragment>
         <Top>
           <ActiveArea onClick={this.handleClick}>
             <StyledInfoIcon />
@@ -78,7 +78,7 @@ export class Note extends React.PureComponent<INoteProps, INoteState> {
         <Collapsible isOpen={isOpen}>
           {this.props.children}
         </Collapsible>
-      </div>
+      </React.Fragment>
     );
   }
 
@@ -101,7 +101,7 @@ export class Note extends React.PureComponent<INoteProps, INoteState> {
 }
 
 const Collapsible = styled<{ isOpen: boolean }, 'div'>('div')`
-  padding: 11px 0;
+  padding: 10px 0 16px;
   display: ${({ isOpen }: { isOpen: boolean }) => (isOpen ? 'block' : 'none')};
   border-bottom: 1px solid ${({ theme }: PropsWithTheme<{}>): string =>
     theme.colors.borderControlDefault};
@@ -156,6 +156,7 @@ const ActiveArea = styled('div')`
 const ActionName = styled('span')`
   margin: 0 6px 0 8px;
   border-bottom: 1px dashed #AEB9C3;
+  line-height: 1.2;
 `;
 
 const StyledInfoIcon = styled(InfoIcon)`
