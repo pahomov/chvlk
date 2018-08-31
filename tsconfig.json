@@ -2,12 +2,13 @@
   "compilerOptions": {
     "target": "es2017",
     "declaration": true,
-    // "module": "commonjs",
-    // "target": "es5",
-    // "lib": ["es6", "dom"],
     "jsx": "react",
     "moduleResolution": "node",
     "strict": true,
+    "noUnusedLocals": true,	
+    "noUnusedParameters": true,	
+    "noImplicitReturns": true,	
+    "noFallthroughCasesInSwitch": true,
     "outDir": "build"
   },
   "include": [
