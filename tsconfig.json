@@ -1,25 +1,21 @@
 {
   "compilerOptions": {
-    /* Basic Options */
-    "target": "es5",
-    "module": "commonjs",
+    "target": "es2017",
+    "declaration": true,
+    // "module": "commonjs",
+    // "target": "es5",
+    // "lib": ["es6", "dom"],
     "jsx": "react",
-    "declaration": false,
-    "sourceMap": true,
-    "outDir": "build",
-    "moduleResolution": "Node",
-    /* Strict Type-Checking Options */
+    "moduleResolution": "node",
     "strict": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "noImplicitThis": true,
-    "alwaysStrict": true,
-    /* Additional Checks */
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "lib": ["es5", "dom", "es6", "es2017"]
+    "outDir": "build"
   },
-  "exclude": ["node_modules"]
+  "include": [
+    "./src/**/*.ts"
+  ],
+  "exclude": [
+      "node_modules",
+      "**/*.test.ts",
+      "**/*.snapshot.ts"
+  ]
 }

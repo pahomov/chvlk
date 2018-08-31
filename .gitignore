@@ -66,12 +66,6 @@ coverage/
 # Styleguide
 styleguide/
 
-# Build files
-/[A-Z]*
-/index.js
-/index.js.map
-themes/
-
 # Exclude
 !docs/
 !gen/
