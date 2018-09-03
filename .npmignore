@@ -4,6 +4,7 @@ gen/
 src/
 utils/
 styleguide/
+fonts/
 .travis.yml
 styleguide.config.js
 tsconfig.json
