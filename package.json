@@ -78,7 +78,7 @@
       "!**/src/components/**/*.snapshot.ts",
       "!**/src/components/**/*.test.tsx",
       "!**/src/components/**/index.ts",
-      "!./lib/**",
+      "!**/lib/**",
       "!**/node_modules/**"
     ],
     "coverageDirectory": "coverage",
