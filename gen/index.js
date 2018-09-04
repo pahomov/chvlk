@@ -11,6 +11,7 @@ const templates = {
   'index': 'index.ts',
   'snapshot': '%COMPONENT%.snapshot.ts',
   'test': '%COMPONENT%.test.tsx',
+  'import': path.join('..', '..', '..', '%COMPONENT%.js'),
 }
 
 

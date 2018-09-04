@@ -1,0 +1,2 @@
+import %COMPONENT% from "./build/src/components/%COMPONENT%";
+export default %COMPONENT%;

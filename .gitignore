@@ -59,7 +59,6 @@ typings/
 
 # Build components
 lib/
-build/
 
 # Tests coverage
 coverage/
