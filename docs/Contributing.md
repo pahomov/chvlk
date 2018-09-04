@@ -60,6 +60,10 @@ instead of
 import Component from 'chvlk/Component/Component';
 ```
 
+## Adding images
+
+Convert svg into tsx via [svgr](https://svgr.now.sh/)
+
 ## Edit code
 
 You can start `styleguidist` for live preview of your changes by running:
